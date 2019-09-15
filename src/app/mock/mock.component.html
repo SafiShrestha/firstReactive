@@ -1,0 +1,20 @@
+<form [formGroup]="mainForm">
+  <div *ngFor="let details of mainForm.get('firstArray')['controls']; let i = index" formArrayName="firstArray">
+
+    <div [formGroupName]=i>
+
+      <label for="1">Name</label>
+<input type="text" name="1" formControlName="name">
+<label for="2">Age</label>
+<input type="number" name="2" formControlName="age">
+
+    </div>
+
+<button (click)="remove(i)" class="btn btn-danger">Remove</button>
+<hr>
+
+  </div>
+
+</form>
+<button (click)= "addField()" class="btn btn-primary">Add</button>
+<pre>{{mainForm.value | json}}</pre>
